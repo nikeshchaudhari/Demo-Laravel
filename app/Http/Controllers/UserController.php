@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-  function userHome(){
-    $name= "Nikesh Chaudhari";
+   function addUser(Request $req){
+    $message=[
+      'name.required'=>"Name is mandatory!"
+    ];
+    $req->validate([
+      'name'=> 'required |min:5|max:15 ',
+      'email'=> 'required |email ',
+      'city'=> 'required',
+      'skill'=> 'required',
+     
+    ],$message);
 
-    return view ("home",['user'=>$name]);
-  }
-  function about(){
-    return view("about");
-
-  }
+    return $req;
+   }
 }
