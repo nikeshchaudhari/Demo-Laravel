@@ -1,3 +1,2 @@
-
-<h1>Home laravel</h1>
-
+<h1>Home Page</h1>
+{{URL::current()}}

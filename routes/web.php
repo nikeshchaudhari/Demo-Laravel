@@ -14,12 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\UserController;
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
+Route::view('/home', 'home');
+Route::view('/user', 'home');
+Route::view('/about', 'about');
 
-// Route::get("/user",[UserController::class,"getUser"]);
-Route::get("/users",[UserController::class,"userHome"]);
-Route::get("/about",[UserController::class , "about"]);
- Route::view("/form","form");
- Route::post("/adduser",[UserController::class,"addUser"]);
