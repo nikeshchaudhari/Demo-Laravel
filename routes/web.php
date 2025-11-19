@@ -13,11 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::view('/home', 'home');
-Route::view('/user', 'home');
-Route::view('/about', 'about');
+Route::view('/home/profile/user', 'home')->name('hm');
+Route::view("/home/profile/{name}",'home')->name("user");
+route::get("/show",[HomeController::class,'show']);
+Route::get('/user', [HomeController::class, 'user']);
 
+Route::get("/profile",function (){
+    return "welcome";
+})->middleware('checkage');
